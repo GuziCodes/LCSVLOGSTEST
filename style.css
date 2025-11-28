@@ -1,0 +1,270 @@
+/* ============================================================
+   BASE STYLING FOR BOTH THEMES
+============================================================ */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    padding: 40px 25px;
+    transition: background 0.4s, color 0.4s;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 45px;
+    position: relative;
+}
+
+/* Toggle button */
+#theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 15px 25px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #6e35e8;
+    color: white;
+    font-weight: 600;
+    transition: 0.25s;
+    box-shadow: 0 0 8px rgba(149, 96, 255, 0.5);
+}
+
+#theme-toggle:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Layout */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 38px;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.video-container {
+    border-radius: 18px;
+    padding: 20px 20px 26px;
+    border: 1.3px solid;
+    transition: 0.3s ease;
+    backdrop-filter: blur(16px);
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 14px;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.video-title {
+    text-align: center;
+    margin: 16px 0;
+    font-size: 20px;
+    font-weight: 600;
+    background: linear-gradient(to right, #b08cff, #5cb8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 18px;
+    margin: 6px 5px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    color: white;
+    letter-spacing: 0.3px;
+    transition: 0.25s ease;
+}
+
+.play, .pause {
+    background: linear-gradient(135deg, #3c6aff, #2f57d8);
+}
+
+.mute, .speed, .fullscreen {
+    background: linear-gradient(135deg, #8f5cff, #6e35e8);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.nav-button {
+    background: linear-gradient(135deg, #6e35e8, #8f5cff);
+    padding: 14px 42px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 0 14px rgba(149, 96, 255, 0.55);
+}
+
+.nav-button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.15);
+}
+
+/* ============================================================
+   DARK MODE (DEFAULT)
+============================================================ */
+:root {
+    --bg: #0d0e12;
+    --text: #d2d2d2;
+    --card-bg: rgba(34, 34, 40, 0.55);
+    --border-color: rgba(124, 96, 255, 0.35);
+    --border-hover: rgba(146, 113, 255, 0.6);
+}
+
+/* Apply dark values */
+body.dark {
+    background: var(--bg);
+    color: var(--text);
+}
+
+body.dark .video-container {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+body.dark .video-container:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 12px 30px rgba(124, 96, 255, 0.25);
+}
+
+body.dark .page-header h1 {
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(132, 80, 255, 0.5);
+}
+
+/* ============================================================
+   LIGHT MODE
+============================================================ */
+body.light {
+    background: #f5f6ff;
+    color: #393939;
+}
+
+body.light .page-header h1 {
+    color: #3f2d73;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+body.light .video-container {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(165, 150, 250, 0.35);
+    box-shadow: 0 8px 25px rgba(60, 60, 90, 0.1);
+}
+
+body.light .video-container:hover {
+    border-color: rgba(130, 110, 255, 0.6);
+    box-shadow: 0 12px 32px rgba(70, 70, 110, 0.18);
+}
+
+body.light #theme-toggle {
+    background: #3f2d73;
+    box-shadow: 0 0 8px rgba(60, 40, 120, 0.3);
+}
+/* Phones (small screens) */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 15px;
+    }
+
+    .page-header {
+        padding-top: 40px;
+    }
+
+    /* FIXED THE THEME BUTTON */
+    #theme-toggle {
+        position: static;         /* Removes overlap */
+        display: block;
+        margin: 10px auto 0;      /* Centers the button */
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .page-header h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .video-gallery {
+        grid-template-columns: 2fr;   /* 2 column on phones */
+        gap: 25px;
+    }
+
+    .video-container {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .video-title {
+        font-size: 17px;
+    }
+
+    button {
+        padding: 8px 14px;
+        font-size: 13px;
+        margin: 4px;
+    }
+
+    .nav-button {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+}
+
+/* Tablets (medium screens) */
+@media (max-width: 900px) and (min-width: 601px) {
+    .video-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .video-container {
+        padding: 18px;
+    }
+
+    .video-title {
+        font-size: 18px;
+    }
+}
+
+/* Large desktops */
+@media (min-width: 1500px) {
+    .video-gallery {
+        max-width: 1800px;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    }
+}
+/* Make video truly fullscreen on mobile */
+:fullscreen video {
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: contain;
+    background: black;
+}
+
+video:-webkit-full-screen {
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: contain;
+    background: black;
+}
